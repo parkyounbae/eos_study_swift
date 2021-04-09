@@ -36,18 +36,18 @@ functionWithAssert(age: 50)
 //guard의 else 블럭 내부에는 코드블럭을 종료하는 지시어(return, break)가 곡 있어야 한다.
 func functionWithGuard(age: Int?) {
     
-    guard let unwrappedAge = age,
+    guard let unwrappedAge = age, //먼저 나이를 언래핑
         unwrappedAge < 130,
-        unwrappedAge >= 0 else {
+        unwrappedAge >= 0 else { //가드에는 else가 무조건
         print("나이값 입력이 잘못되었습니다")
-        return
+        return//리턴도 무조건
     }
     
     print("당신의 나이는 \(unwrappedAge)세입니다")
 }
 
 var count = 1
-
+//함수 뿐만 아니라 반복문 안에서도 사용 가능
 while true {
     guard count < 3 else {
         break
