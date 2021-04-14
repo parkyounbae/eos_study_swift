@@ -29,10 +29,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             print("Can not find music file.")
             return
         }
+        //에셋에 sound라는 파일이 있는지 왁인
         
         do {
             try self.player = AVAudioPlayer(data: soundAsset.data)
             self.player.delegate = self
+            //우리가 AVAudioPlayer을 delegate해주었으니 위임자를 명시해 주어야 한다.
+            //이제부터 player의 뒷바라지는 ViewController가 할게!!
+            //player에 이벤트가 발생하면 뷰컬트롤러가 프로토콜에 따라 응답을 준다.
         } catch let error as NSError {
             print("fail to reset player")
             print("code : \(error.code), message : \(error.localizedDescription)")
@@ -41,12 +45,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         self.progressSlider.maximumValue = Float(self.player.duration)
         self.progressSlider.minimumValue = 0
         self.progressSlider.value = Float(self.player.currentTime)
+        //진행 바에대한 정보들을 초기화시켜줌
     }
     
     //레이블을 매 초마다 업데이트 해주는 메서드
     func updateTimeLableText(time: TimeInterval){
         let minute: Int = Int(time/60)
         let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
+        //truncatingRemainder : 나머지 구하기
         let milisecond: Int = Int(time.truncatingRemainder(dividingBy: 1)*100)
         
         let timeText: String = String(format: "%02ld:%02ld:%02ld", minute,second,milisecond)
@@ -60,7 +66,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             if self.progressSlider.isTracking { return }
             
             self.updateTimeLableText(time: self.player.currentTime)
+            //초단위로 넘어가는 듯? 라벨의 시간 바꿔주고
             self.progressSlider.value = Float(self.player.currentTime)
+            //슬라이더 바의 시간 바꿔주고
         })
         self.timer.fire()
     }
@@ -177,6 +185,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         //매개변수는 어느 버튼이 클릭되었는지.
         //메인스토리보드에서 버튼과 연결해준다
         sender.isSelected = !sender.isSelected
+        //내가 직접 바꿔주어야 한다. 초기는 false로 설정되어있음
         
         if sender.isSelected{
             self.player?.play()
