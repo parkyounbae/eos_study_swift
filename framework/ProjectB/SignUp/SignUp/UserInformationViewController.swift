@@ -40,23 +40,13 @@ class UserInformationViewController: UIViewController, UIImagePickerControllerDe
     //MARK: TextField Set
     //텍스트필드의 수정이 끝났을 때
     //모든 필드가 채워져 있고 비번 두 칸이 같을 때 가입버튼 활성
-    private func textFieldDidEndEditing(_ textView: UITextView) {
-        guard let password = passwordField.text, let passwordCheck = passwordCheckField.text, password==passwordCheck, !(idField.text?.isEmpty ?? true), !(selfIntroduceField.text?.isEmpty ?? true) else{
-            print("비밀번호 불일치")
-            nextButton.isEnabled = false
-            return
-        }
-        print("비밀번호 일치")
-        nextButton.isEnabled = true
-    }
-    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let password = passwordField.text, let passwordCheck = passwordCheckField.text, password==passwordCheck, !(idField.text?.isEmpty ?? true), !(selfIntroduceField.text?.isEmpty ?? true) else{
-            print("비밀번호 불일치")
+            print("비밀번호 불일치1")
             nextButton.isEnabled = false
             return
         }
-        print("비밀번호 일치")
+        print("비밀번호 일치1")
         nextButton.isEnabled = true
     }
     
