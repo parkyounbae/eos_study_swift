@@ -148,6 +148,7 @@
                                         <rect key="frame" x="244.5" y="0.0" width="69.5" height="30"/>
                                         <state key="normal" title="다음"/>
                                         <connections>
+                                            <action selector="nextButtonSingleton:" destination="Zdh-Ja-fll" eventType="touchUpInside" id="sgO-P5-In4"/>
                                             <segue destination="xG5-Jh-cC7" kind="show" id="SmI-d4-SQs"/>
                                         </connections>
                                     </button>
@@ -198,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="93.75"/>
         </scene>
-        <!--User Information View Controller-->
+        <!--User Second Information View Controller-->
         <scene sceneID="KK9-US-0wd">
             <objects>
-                <viewController id="xG5-Jh-cC7" customClass="UserInformationViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xG5-Jh-cC7" customClass="UserSecondInformationViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e02-He-3zd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,7 +236,7 @@
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="popToPrev" destination="xG5-Jh-cC7" eventType="touchUpInside" id="IXU-LV-11z"/>
+                                            <action selector="popToPrev" destination="xG5-Jh-cC7" eventType="touchUpInside" id="7MY-UT-7f7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdW-iY-ryQ">
