@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         
-        
+        //셀을 계속 디큐해준다.... 화면에 보이지 않는 셀들은 재사용 큐에 집어넣고 셀을 불러올때 이 큐에서 디큐를 해준다 만약 재사용 큐가 비어있다면 새로운 셀을 생성해준다.
         if indexPath.section < 2 {
             let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
             //셀을 만들어주고
@@ -75,6 +75,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let text: String = indexPath.section == 0 ? korean[indexPath.row] : english[indexPath.row]
             //섹션이 0 이라면 korean, 아니면 english
             cell.textLabel?.text = text
+            
+            if indexPath.row==1{
+                cell.backgroundColor = UIColor.red //셀이 재사용 되고 있음을 확인... else문을 설정하면 방지가능
+            }
+            
             return cell
         }else{
             let cell:CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.custonnCellIdentifier, for: indexPath) as! CustomTableViewCell
