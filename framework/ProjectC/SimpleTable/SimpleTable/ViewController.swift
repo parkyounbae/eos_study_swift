@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "cell"
+    let custonnCellIdentifier: String = "customCell"
     
     let korean: [String] = ["가","나","다","라","마","바","사","아","자","차","카","타","파","하"]
     let english: [String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","x","t","u","v","w","x","y","z"]
@@ -22,6 +23,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let dateFormatter: DateFormatter = {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+    let timeFormatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
         formatter.timeStyle = .medium
         return formatter
     }()
@@ -59,22 +65,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //row마다 해당하는 cell을 돌려달라
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        //셀을 만들어주고
+       
         
         
         if indexPath.section < 2 {
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+            //셀을 만들어주고
             //셀의 내용을 세팅해준다
             let text: String = indexPath.section == 0 ? korean[indexPath.row] : english[indexPath.row]
             //섹션이 0 이라면 korean, 아니면 english
             cell.textLabel?.text = text
+            return cell
         }else{
-            cell.textLabel?.text = self.dateFormatter.string(from: self.dates[indexPath.row])
+            let cell:CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.custonnCellIdentifier, for: indexPath) as! CustomTableViewCell
+            cell.leftLabel.text = self.dateFormatter.string(from: self.dates[indexPath.row])
+            cell.rightLabel.text = self.timeFormatter.string(from: self.dates[indexPath.row])
+            return cell
         }
-        
-         
-        //리턴
-        return cell
     }
     
     //섹션마다 타이틀을 줄 수 있다.

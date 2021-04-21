@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dyf-j5-cv2">
-                                    <rect key="frame" x="0.0" y="117" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="160" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Add Data"/>
                                     <connections>
@@ -44,6 +44,40 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="9rf-jj-Djx" customClass="CustomTableViewCell" customModule="SimpleTable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99" width="414" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9rf-jj-Djx" id="i8z-Z6-qmA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3a-uk-GEf">
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oA-Q1-v4A">
+                                                    <rect key="frame" x="352" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="W3a-uk-GEf" firstAttribute="leading" secondItem="i8z-Z6-qmA" secondAttribute="leadingMargin" id="2kG-H5-drw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="W3a-uk-GEf" secondAttribute="bottom" id="52P-nV-dku"/>
+                                                <constraint firstItem="W3a-uk-GEf" firstAttribute="top" secondItem="i8z-Z6-qmA" secondAttribute="topMargin" id="Gl6-0l-Xdm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0oA-Q1-v4A" secondAttribute="bottom" id="HmX-xw-sQ4"/>
+                                                <constraint firstItem="0oA-Q1-v4A" firstAttribute="top" secondItem="i8z-Z6-qmA" secondAttribute="topMargin" id="tI2-1x-i9Q"/>
+                                                <constraint firstItem="0oA-Q1-v4A" firstAttribute="trailing" secondItem="i8z-Z6-qmA" secondAttribute="trailingMargin" id="ws9-EM-jCX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leftLabel" destination="W3a-uk-GEf" id="59y-Ww-51H"/>
+                                            <outlet property="rightLabel" destination="0oA-Q1-v4A" id="kQt-QV-mGR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
