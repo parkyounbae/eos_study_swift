@@ -18,10 +18,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let korean: [String] = ["가","나","다","라","마","바","사","아","자","차","카","타","파","하"]
     let english: [String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","x","t","u","v","w","x","y","z"]
+    var dates: [Date] = [] //추가할 데이트들의 배열 생성
+    let dateFormatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter
+    }()
+    
+    //추가버튼 클릭
+    @IBAction func touchUpAddButton(_ sender: UIButton){
+        dates.append(Date())
+        print("clicked")
+        //self.tableView.reloadData() //전체 섹션을 다시 불러온다. -> 비효율적
+        self.tableView.reloadSections(IndexSet(2...2), with: UITableView.RowAnimation.automatic)
+        
+    }
 
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
         //한글과 영어 두개의 섹션
     }
     
@@ -34,6 +50,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return korean.count
         case 1:
             return english.count
+        case 2:
+            return dates.count
         default:
             return 0
         }
@@ -44,18 +62,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
         //셀을 만들어주고
         
-        //셀의 내용을 세팅해준다
-        let text: String = indexPath.section == 0 ? korean[indexPath.row] : english[indexPath.row]
-        //섹션이 0 이라면 korean, 아니면 english
-        cell.textLabel?.text = text
         
+        if indexPath.section < 2 {
+            //셀의 내용을 세팅해준다
+            let text: String = indexPath.section == 0 ? korean[indexPath.row] : english[indexPath.row]
+            //섹션이 0 이라면 korean, 아니면 english
+            cell.textLabel?.text = text
+        }else{
+            cell.textLabel?.text = self.dateFormatter.string(from: self.dates[indexPath.row])
+        }
+        
+         
         //리턴
         return cell
     }
     
     //섹션마다 타이틀을 줄 수 있다.
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section==0 ? "korean" : "english"
+        if section<2{
+            return section==0 ? "korean" : "english"
+        }
+        return nil
     }
 
 }
