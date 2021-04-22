@@ -15,7 +15,7 @@ class SecondViewController: UIViewController, UITableViewDataSource {
     var cityName: String?
     var cityTicker: String?
     
-    
+    //마찬가지로 필수 메소드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherInformations.count
     }
