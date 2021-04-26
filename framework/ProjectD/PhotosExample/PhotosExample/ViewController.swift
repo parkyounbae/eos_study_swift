@@ -8,12 +8,40 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PHPhotoLibraryChangeObserver {
     
     @IBOutlet weak var tableView: UITableView! //가져온 사진 목록을 테이블 뷰에
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     let cellIdentifier: String = "cell"
+    
+    //어떤 로우를 우리가 편집할 수 있게 할 것인가
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{ //삭제할 것인가
+            let asset: PHAsset = self.fetchResult[indexPath.row]
+            
+            PHPhotoLibrary.shared().performChanges({PHAssetChangeRequest.deleteAssets([asset] as NSArray)}, completionHandler: nil)
+            //에셋을 딜리트 해줌
+        }
+    }
+    
+    //PHPhotoLibraryChangeObserver의 메서드 ... 포토라이브러리가 바뀌면 호출되는 메서드
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        guard let changes = changeInstance.changeDetails(for: fetchResult)
+        else { return }
+        
+        fetchResult = changes.fetchResultAfterChanges
+        //어떤게 바뀌였는지
+        
+        OperationQueue.main.addOperation {
+            self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+            //바꼈으면 이제 테이블 뷰를 다시 불러달라
+        }
+    }
     
     func requestCollection(){
         let cameraRoll: PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
@@ -66,7 +94,8 @@ class ViewController: UIViewController, UITableViewDataSource {
             fatalError()
         }
         
-        
+        PHPhotoLibrary.shared().register(self)
+        //포토 라이브러리가 변화될때마다 델리게이트 메서드가 호출됨
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
