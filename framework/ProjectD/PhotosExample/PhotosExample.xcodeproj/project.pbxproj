@@ -15,6 +15,7 @@
 		F43272242633ED7C004443A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43272222633ED7C004443A8 /* LaunchScreen.storyboard */; };
 		F432722F2633ED7C004443A8 /* PhotosExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F432722E2633ED7C004443A8 /* PhotosExampleTests.swift */; };
 		F432723A2633ED7C004443A8 /* PhotosExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43272392633ED7C004443A8 /* PhotosExampleUITests.swift */; };
+		F4DDEDD62637D7E20018237F /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEDD52637D7E20018237F /* ImageZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F43272352633ED7C004443A8 /* PhotosExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43272392633ED7C004443A8 /* PhotosExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosExampleUITests.swift; sourceTree = "<group>"; };
 		F432723B2633ED7C004443A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DDEDD52637D7E20018237F /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F43272192633ED79004443A8 /* SceneDelegate.swift */,
 				F432721B2633ED79004443A8 /* ViewController.swift */,
 				F432721D2633ED79004443A8 /* Main.storyboard */,
+				F4DDEDD52637D7E20018237F /* ImageZoomViewController.swift */,
 				F43272202633ED7C004443A8 /* Assets.xcassets */,
 				F43272222633ED7C004443A8 /* LaunchScreen.storyboard */,
 				F43272252633ED7C004443A8 /* Info.plist */,
@@ -261,6 +264,7 @@
 				F432721C2633ED79004443A8 /* ViewController.swift in Sources */,
 				F43272182633ED79004443A8 /* AppDelegate.swift in Sources */,
 				F432721A2633ED79004443A8 /* SceneDelegate.swift in Sources */,
+				F4DDEDD62637D7E20018237F /* ImageZoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
