@@ -98,6 +98,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //포토 라이브러리가 변화될때마다 델리게이트 메서드가 호출됨
     }
     
+    @IBAction func touchUpRefreshButton(_ sender: UIBarButtonItem){
+        self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.fetchResult?.count ?? 0
     }
