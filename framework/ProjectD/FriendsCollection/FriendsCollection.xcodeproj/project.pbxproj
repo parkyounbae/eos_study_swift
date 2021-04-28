@@ -15,6 +15,8 @@
 		F4DDEDF32638E6250018237F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DDEDF12638E6250018237F /* LaunchScreen.storyboard */; };
 		F4DDEDFE2638E6250018237F /* FriendsCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEDFD2638E6250018237F /* FriendsCollectionTests.swift */; };
 		F4DDEE092638E6260018237F /* FriendsCollectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEE082638E6260018237F /* FriendsCollectionUITests.swift */; };
+		F4DDEE1A263912BE0018237F /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEE19263912BE0018237F /* FriendCollectionViewCell.swift */; };
+		F4DDEE1F263913BD0018237F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEE1E263913BD0018237F /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		F4DDEE042638E6250018237F /* FriendsCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DDEE082638E6260018237F /* FriendsCollectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionUITests.swift; sourceTree = "<group>"; };
 		F4DDEE0A2638E6260018237F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DDEE19263912BE0018237F /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4DDEE1E263913BD0018237F /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Friend.swift; path = ../../../ProjectC/MyFriends/MyFriends/Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				F4DDEDE82638E6210018237F /* SceneDelegate.swift */,
 				F4DDEDEA2638E6210018237F /* ViewController.swift */,
 				F4DDEDEC2638E6210018237F /* Main.storyboard */,
+				F4DDEE1E263913BD0018237F /* Friend.swift */,
+				F4DDEE19263912BE0018237F /* FriendCollectionViewCell.swift */,
 				F4DDEDEF2638E6250018237F /* Assets.xcassets */,
 				F4DDEDF12638E6250018237F /* LaunchScreen.storyboard */,
 				F4DDEDF42638E6250018237F /* Info.plist */,
@@ -258,7 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DDEE1A263912BE0018237F /* FriendCollectionViewCell.swift in Sources */,
 				F4DDEDEB2638E6210018237F /* ViewController.swift in Sources */,
+				F4DDEE1F263913BD0018237F /* Friend.swift in Sources */,
 				F4DDEDE72638E6210018237F /* AppDelegate.swift in Sources */,
 				F4DDEDE92638E6210018237F /* SceneDelegate.swift in Sources */,
 			);
