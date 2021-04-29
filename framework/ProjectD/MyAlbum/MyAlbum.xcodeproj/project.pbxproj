@@ -15,6 +15,7 @@
 		F420AA442639294A00067363 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F420AA422639294A00067363 /* LaunchScreen.storyboard */; };
 		F420AA4F2639294B00067363 /* MyAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420AA4E2639294B00067363 /* MyAlbumTests.swift */; };
 		F420AA5A2639294B00067363 /* MyAlbumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420AA592639294B00067363 /* MyAlbumUITests.swift */; };
+		F48EB8E7263AF5F100887745 /* todoList in Resources */ = {isa = PBXBuildFile; fileRef = F48EB8E6263AF5F100887745 /* todoList */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F420AA552639294B00067363 /* MyAlbumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAlbumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F420AA592639294B00067363 /* MyAlbumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumUITests.swift; sourceTree = "<group>"; };
 		F420AA5B2639294B00067363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48EB8E6263AF5F100887745 /* todoList */ = {isa = PBXFileReference; lastKnownFileType = text; path = todoList; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F420AA392639294500067363 /* SceneDelegate.swift */,
 				F420AA3B2639294500067363 /* ViewController.swift */,
 				F420AA3D2639294500067363 /* Main.storyboard */,
+				F48EB8E6263AF5F100887745 /* todoList */,
 				F420AA402639294A00067363 /* Assets.xcassets */,
 				F420AA422639294A00067363 /* LaunchScreen.storyboard */,
 				F420AA452639294A00067363 /* Info.plist */,
@@ -233,6 +236,7 @@
 			files = (
 				F420AA442639294A00067363 /* LaunchScreen.storyboard in Resources */,
 				F420AA412639294A00067363 /* Assets.xcassets in Resources */,
+				F48EB8E7263AF5F100887745 /* todoList in Resources */,
 				F420AA3F2639294500067363 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

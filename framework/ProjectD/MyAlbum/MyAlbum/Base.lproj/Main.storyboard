@@ -164,6 +164,25 @@
                     <view key="view" contentMode="scaleToFill" id="XLp-2j-gob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="cBA-t3-Abr">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PqB-Ep-IIN">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BRk-bT-o5H" firstAttribute="bottom" secondItem="PqB-Ep-IIN" secondAttribute="bottom" id="Vvl-hK-6a8"/>
+                                    <constraint firstItem="BRk-bT-o5H" firstAttribute="trailing" secondItem="PqB-Ep-IIN" secondAttribute="trailing" id="tjd-dH-1P5"/>
+                                    <constraint firstItem="PqB-Ep-IIN" firstAttribute="top" secondItem="BRk-bT-o5H" secondAttribute="top" id="xFR-j0-IAD"/>
+                                    <constraint firstItem="PqB-Ep-IIN" firstAttribute="leading" secondItem="BRk-bT-o5H" secondAttribute="leading" id="zVl-b1-Bn1"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="27J-ZQ-HYu"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BRk-bT-o5H"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QyN-Yg-hF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -171,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="531-di-Van" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="130"/>
+            <point key="canvasLocation" x="2385.507246376812" y="129.91071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="adc-Ck-0p0">
