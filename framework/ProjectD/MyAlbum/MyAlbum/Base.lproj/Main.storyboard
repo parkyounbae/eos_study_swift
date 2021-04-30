@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dDs-J1-lTh">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="dDs-J1-lTh" customClass="AlbumCollectionViewCell" customModule="MyAlbum" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="195" height="223"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fAy-Pt-eSO">
@@ -68,10 +68,16 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="195" height="223"/>
                                         <connections>
+                                            <outlet property="albumCountLabel" destination="6bA-bk-b3h" id="ERU-1u-HEo"/>
+                                            <outlet property="albumNameLabel" destination="lcw-Jd-QLv" id="eNs-we-vZY"/>
+                                            <outlet property="albumThumImageView" destination="4oj-eB-wxE" id="tPb-vo-cm7"/>
                                             <segue destination="S0Z-3E-bHZ" kind="show" id="bRt-pT-Gmh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Rj5-9m-fKF"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -84,6 +90,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="앨범" id="W9Q-J2-qyK"/>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="GKJ-zQ-0A3" id="l20-7p-UZl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
