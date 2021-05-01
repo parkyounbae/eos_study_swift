@@ -11,7 +11,7 @@ import Photos
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var albumCollectionView: UICollectionView!
-    var albums: [PHAssetCollection] = []
+    var albums: [PHAssetCollection] = [] //앨범을 여기다가 저장, 배열로다가
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     let cellIdentifier: String = "cell"
@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let albumThumnail: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: fetchOptions)
         
         //self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
-        self.fetchResult = albumColection
+        //self.fetchResult = albumColection
     }
     
     private func prepareCollectionView() {
@@ -35,12 +35,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult.count
+        return albums.count //앨범의 갯수만큼 셀을 생성하겠다
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: AlbumCollectionViewCell = albumCollectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! AlbumCollectionViewCell
-        
+        //문제는 해당하는 phassetcollection에서 첫번째 asset을 꺼내오는 것... 이게 어케하는지 머르겠디...
         
         return cell
         
