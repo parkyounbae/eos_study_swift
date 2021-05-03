@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="118.52678571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="5ng-wE-0TZ">
             <objects>
-                <viewController id="S0Z-3E-bHZ" sceneMemberID="viewController">
+                <viewController id="S0Z-3E-bHZ" customClass="SecondViewController" customModule="MyAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y2P-Kd-oCB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="78N-a6-d5u">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="78N-a6-d5u" customClass="PhotoCollectionViewCell" customModule="MyAlbum" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C85-tg-SIM">
@@ -137,10 +137,15 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="127" height="127"/>
                                         <connections>
+                                            <outlet property="imageView" destination="ry7-vr-lcZ" id="3VV-gD-sYl"/>
                                             <segue destination="bLI-uh-DeE" kind="show" id="p4J-cD-9qn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="S0Z-3E-bHZ" id="85T-UY-RKp"/>
+                                    <outlet property="delegate" destination="S0Z-3E-bHZ" id="QCC-Bs-WbF"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XWL-LG-jJk"/>
@@ -162,6 +167,13 @@
                         <barButtonItem key="rightBarButtonItem" title="선택" id="cbn-eU-GaZ"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backBtn" destination="PVQ-Vg-wTJ" id="qa2-Uw-RFp"/>
+                        <outlet property="removeBtn" destination="seh-4K-v0U" id="xcm-SR-nkm"/>
+                        <outlet property="selectBtn" destination="cbn-eU-GaZ" id="vzM-m7-cr3"/>
+                        <outlet property="shareBtn" destination="jiz-k6-dkM" id="xgp-M5-4g1"/>
+                        <outlet property="sortBtn" destination="bd1-cq-BRp" id="UXh-pB-Hg3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThJ-dE-Bwa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

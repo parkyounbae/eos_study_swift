@@ -160,4 +160,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 //        photosViewController.selectedCollection = album
 //        self.navigationController?.pushViewController(photosViewController, animated: true)
 //    }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        // 넘겨줘야 할 것 ... 내가 선택한 셀의 ASSET보내기, 앨범 이름
+        
+        
+    }
+    
 }
+
+
