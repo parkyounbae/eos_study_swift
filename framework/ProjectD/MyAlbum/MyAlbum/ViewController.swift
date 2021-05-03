@@ -15,25 +15,66 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     let cellIdentifier: String = "cell"
+    let numberOfItemsInRow = 2
     
-    func requestCollection(){
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let albumThumnail: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: fetchOptions)
+    let half: Double = Double(UIScreen.main.bounds.width/2 - 20)
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        //self.prepareCollectionView()
         
-        //self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
-        //self.fetchResult = albumColection
+        let flowLayout = UICollectionViewFlowLayout()
+        let heightSize: Double = half + 40
+        flowLayout.itemSize = CGSize(width: half, height: heightSize)
+        
+        flowLayout.sectionInset = UIEdgeInsets.zero
+        flowLayout.minimumLineSpacing = 40
+        flowLayout.minimumInteritemSpacing = 20
+        self.albumCollectionView.collectionViewLayout = flowLayout
+        
+        
     }
     
-    private func prepareCollectionView() {
-            self.albumCollectionView.dataSource = self
-            self.albumCollectionView.delegate = self
-            self.albumCollectionView.register(UINib.init(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCollectionViewCell")
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.checkAuthhorizationStatus()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
     
     
     
+    func requestCollection(){
+        print("requestionCollection 들어왔어!")
+        
+        let albumResult: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        print("requestionCollection 들어왔어!2")
+        albumResult.enumerateObjects({ (collection, _, _) in
+            if (self.checkCollectionEmpty(collection)) {
+                self.albums.append(collection)
+                print("append")
+            }
+        })
+    }
     
+    func checkCollectionEmpty(_ collectionViewFromRequestColection: PHAssetCollection) -> Bool{
+        let assets = PHAsset.fetchAssets(in: collectionViewFromRequestColection, options: nil)
+        return assets.count > 0
+    }
+    
+//    private func prepareCollectionView() {
+//            self.albumCollectionView.dataSource = self
+//            self.albumCollectionView.delegate = self
+//            self.albumCollectionView.register(UINib.init(nibName: "cell", bundle: nil), forCellWithReuseIdentifier: "cell")
+//        }
+//
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albums.count //앨범의 갯수만큼 셀을 생성하겠다
     }
@@ -42,20 +83,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell: AlbumCollectionViewCell = albumCollectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! AlbumCollectionViewCell
         //문제는 해당하는 phassetcollection에서 첫번째 asset을 꺼내오는 것... 이게 어케하는지 머르겠디...
         
-        return cell
+        let assets = PHAsset.fetchAssets(in: albums[indexPath.item], options: nil)
+        guard let asset = assets.firstObject else {
+            print("셀 리턴 실패")
+            return cell
+        }
         
-//        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-//
-//        let asset: PHAsset = fetchResult.object(at: indexPath.row)
-//        //index에 해당하는 사진을
-//        imageManager.requestImage(for: asset, targetSize: CGSize(width: 30, height: 30), contentMode: .aspectFill, options: nil, resultHandler: {image, _ in cell.imageView?.image = image})
-//        //이미지 매니저를 통해 이미지를 요청함. 셀에 들어갈 사이즈로 작게, 가져온 뒤 셀에 이미지 넣어줌
-//
-//        return cell
-//    }
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 30, height: 30), contentMode: .aspectFill, options: nil, resultHandler: {image, _ in cell.albumThumImageView?.image = image})
+        cell.albumNameLabel.text = albums[indexPath.item].localizedTitle!
+        cell.albumCountLabel.text = "\(albums[indexPath.item].estimatedAssetCount)"
+        
+        print("셀 리턴")
+        return cell
     }
     
-    func chexkAuthhorizationStatus(){
+    func checkAuthhorizationStatus(){
         let photoAurhorizationStatus = PHPhotoLibrary.authorizationStatus()
         
         switch photoAurhorizationStatus {
@@ -89,14 +131,33 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             fatalError()
         }
     }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.prepareCollectionView()
-    }
-
-
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (Int(UIScreen.main.bounds.size.width) - (numberOfItemsInRow - 1) * 10 - 40) / numberOfItemsInRow
+        return CGSize(width: width, height: width + 36)
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let photosViewController = UIStoryboard.main.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
+//        let album = albums[indexPath.row]
+//        photosViewController.title = album.localizedTitle
+//        photosViewController.selectedCollection = album
+//        self.navigationController?.pushViewController(photosViewController, animated: true)
+//    }
+}
