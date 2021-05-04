@@ -169,6 +169,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backBtn" destination="PVQ-Vg-wTJ" id="qa2-Uw-RFp"/>
+                        <outlet property="photoCollectionView" destination="L1y-x5-xbh" id="pSL-2w-XBZ"/>
                         <outlet property="removeBtn" destination="seh-4K-v0U" id="xcm-SR-nkm"/>
                         <outlet property="selectBtn" destination="cbn-eU-GaZ" id="vzM-m7-cr3"/>
                         <outlet property="shareBtn" destination="jiz-k6-dkM" id="xgp-M5-4g1"/>

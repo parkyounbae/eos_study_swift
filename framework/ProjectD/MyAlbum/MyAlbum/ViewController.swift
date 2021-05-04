@@ -170,6 +170,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         // Pass the selected object to the new view controller.
         // 넘겨줘야 할 것 ... 내가 선택한 셀의 ASSET보내기, 앨범 이름
         
+        guard let nextView: SecondViewController = segue.destination as? SecondViewController else{
+            return
+        }
+        
+        guard let cell: AlbumCollectionViewCell = sender as? AlbumCollectionViewCell else {
+            return
+        }
+        
+        guard let index: IndexPath = self.albumCollectionView.indexPath(for: cell) else{
+            return
+        }
+        
+        nextView.pictures = albums[index.item]
+        nextView.albumName = self.albums[index.item].localizedTitle
         
     }
     

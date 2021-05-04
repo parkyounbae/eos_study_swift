@@ -18,7 +18,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     let selfIdentifier: String = "cell"
     
-    var pictures: PHFetchResult<PHAsset>! //뒤에서 받아오기
+    var pictures: PHAssetCollection! //뒤에서 받아오기
     var albumName: String! //뒤에서 가져오기
     
     let imageManager: PHCachingImageManager = PHCachingImageManager()
@@ -28,11 +28,21 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: half, height: half)
+        flowLayout.sectionInset = UIEdgeInsets.zero
+        flowLayout.minimumLineSpacing = 20
+        flowLayout.minimumInteritemSpacing = 20
+        self.photoCollectionView.collectionViewLayout = flowLayout
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.title = albumName
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pictures.count
+        return pictures.estimatedAssetCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,12 +50,15 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let picture = pictures.object(at: indexPath.item)
+        let assets = PHAsset.fetchAssets(in: pictures, options: nil)
+        let asset = assets.object(at: indexPath.item)
         
-        imageManager.requestImage(for: picture, targetSize: CGSize(width: half, height: half), contentMode: .aspectFill, options: nil, resultHandler: {img, _ in cell.imageView.image = img})
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: half, height: half), contentMode: .aspectFill, options: nil, resultHandler: {img, _ in cell.imageView.image = img})
         
         return cell
     }
+    
+
     
     
     
