@@ -50,6 +50,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     func requestCollection(){
+        albums.removeAll()
+        
         print("requestionCollection 들어왔어!")
         
         let albumResult: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .smartAlbumUserLibrary, options: nil)

@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class SecondViewController: UIViewController, UICollectionViewDataSource {
+class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var selectBtn: UIBarButtonItem!
@@ -21,8 +21,11 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
     var pictures: PHAssetCollection! //뒤에서 받아오기
     var albumName: String! //뒤에서 가져오기
     
+    var imageToShare: [UIImage] = []
+    
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     let half: Double = Double(UIScreen.main.bounds.width/3 - 15)
+    var stop:Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +62,41 @@ class SecondViewController: UIViewController, UICollectionViewDataSource {
     }
     
 
+    @IBAction func clickBackBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
+    @IBAction func clickchooseBtn(_ sender: Any) {
+        self.stop = true
+        //공유 삭제 버튼 활성화 하기
+        selectBtn.isEnabled = true
+        shareBtn.isEnabled = true
+        navigationItem.title = "항목 선택"
+        self.backBtn.isEnabled = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelbtAction(_:)))
+        
+        self.photoCollectionView.allowsMultipleSelection = true
+        
+    }
     
+    @IBAction func cancelbtAction(_ sender: UIBarButtonItem) -> Void{
+        self.stop = false
+        //공유 삭제 버튼 활성화 하기
+        self.navigationItem.rightBarButtonItem = selectBtn
+        selectBtn.isEnabled = false
+        shareBtn.isEnabled = false
+        navigationItem.title = "선택"
+        self.backBtn.isEnabled = true
+    }
     
+    @IBAction func clickShareBtn(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func clickSortBtn(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func clickRemoveBtn(_ sender: Any) {
+    }
     
 
     /*

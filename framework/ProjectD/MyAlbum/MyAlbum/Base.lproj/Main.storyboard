@@ -158,13 +158,33 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" image="square.and.arrow.up" catalog="system" id="jiz-k6-dkM"/>
-                        <barButtonItem title="최신순" width="349.5" id="bd1-cq-BRp"/>
-                        <barButtonItem systemItem="trash" id="seh-4K-v0U"/>
+                        <barButtonItem enabled="NO" title="Item" image="square.and.arrow.up" catalog="system" id="jiz-k6-dkM">
+                            <connections>
+                                <action selector="clickShareBtn:" destination="S0Z-3E-bHZ" id="eKZ-lC-BeX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="최신순" width="349.5" id="bd1-cq-BRp">
+                            <connections>
+                                <action selector="clickSortBtn:" destination="S0Z-3E-bHZ" id="MLe-lO-7oK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" systemItem="trash" id="seh-4K-v0U">
+                            <connections>
+                                <action selector="clickRemoveBtn:" destination="S0Z-3E-bHZ" id="q8b-Wa-4xt"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="Ntu-oa-9U7">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="PVQ-Vg-wTJ"/>
-                        <barButtonItem key="rightBarButtonItem" title="선택" id="cbn-eU-GaZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="PVQ-Vg-wTJ">
+                            <connections>
+                                <action selector="clickBackBtn:" destination="S0Z-3E-bHZ" id="Es6-MQ-bif"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="선택" id="cbn-eU-GaZ">
+                            <connections>
+                                <action selector="clickchooseBtn:" destination="S0Z-3E-bHZ" id="7Xk-iC-JAp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
