@@ -22,10 +22,12 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     var albumName: String! //뒤에서 가져오기
     
     var imageToShare: [UIImage] = []
-    
+    var imageToDelete: [Int] = []
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     let half: Double = Double(UIScreen.main.bounds.width/3 - 15)
     var stop:Bool = false
+    
+    var myRightBarButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,9 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.title = albumName
+        
+        myRightBarButton = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(clickchooseBtn(_:)))
+        self.navigationItem.rightBarButtonItem = myRightBarButton
         
     }
     
@@ -69,7 +74,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBAction func clickchooseBtn(_ sender: Any) {
         self.stop = true
         //공유 삭제 버튼 활성화 하기
-        selectBtn.isEnabled = true
+        //selectBtn.isEnabled = true
         shareBtn.isEnabled = true
         navigationItem.title = "항목 선택"
         self.backBtn.isEnabled = false
@@ -82,11 +87,15 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBAction func cancelbtAction(_ sender: UIBarButtonItem) -> Void{
         self.stop = false
         //공유 삭제 버튼 활성화 하기
-        self.navigationItem.rightBarButtonItem = selectBtn
-        selectBtn.isEnabled = false
+        self.navigationItem.rightBarButtonItem = myRightBarButton
+        //selectBtn.isEnabled = false
         shareBtn.isEnabled = false
         navigationItem.title = "선택"
         self.backBtn.isEnabled = true
+        
+        self.imageToDelete = [Int]()
+        self.photoCollectionView.allowsMultipleSelection = false
+        self.photoCollectionView.reloadData()
     }
     
     @IBAction func clickShareBtn(_ sender: UIBarButtonItem) {
