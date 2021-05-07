@@ -19,6 +19,7 @@
 		F4296CFC263FD2E70010BFC6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4296CFB263FD2E70010BFC6 /* PhotoCollectionViewCell.swift */; };
 		F459E650263BBC2E00EEB7CC /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F459E64F263BBC2E00EEB7CC /* AlbumCollectionViewCell.swift */; };
 		F48EB8E7263AF5F100887745 /* todoList in Resources */ = {isa = PBXBuildFile; fileRef = F48EB8E6263AF5F100887745 /* todoList */; };
+		F4940B262644FB8F006ED074 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4940B252644FB8F006ED074 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F4296CFB263FD2E70010BFC6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F459E64F263BBC2E00EEB7CC /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		F48EB8E6263AF5F100887745 /* todoList */ = {isa = PBXFileReference; lastKnownFileType = text; path = todoList; sourceTree = "<group>"; };
+		F4940B252644FB8F006ED074 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				F420AA392639294500067363 /* SceneDelegate.swift */,
 				F420AA3B2639294500067363 /* ViewController.swift */,
 				F4296CF9263FD2C80010BFC6 /* SecondViewController.swift */,
+				F4940B252644FB8F006ED074 /* ThirdViewController.swift */,
 				F420AA3D2639294500067363 /* Main.storyboard */,
 				F459E64F263BBC2E00EEB7CC /* AlbumCollectionViewCell.swift */,
 				F4296CFB263FD2E70010BFC6 /* PhotoCollectionViewCell.swift */,
@@ -274,6 +277,7 @@
 				F459E650263BBC2E00EEB7CC /* AlbumCollectionViewCell.swift in Sources */,
 				F420AA3C2639294500067363 /* ViewController.swift in Sources */,
 				F420AA382639294500067363 /* AppDelegate.swift in Sources */,
+				F4940B262644FB8F006ED074 /* ThirdViewController.swift in Sources */,
 				F4296CFA263FD2C80010BFC6 /* SecondViewController.swift in Sources */,
 				F420AA3A2639294500067363 /* SceneDelegate.swift in Sources */,
 				F4296CFC263FD2E70010BFC6 /* PhotoCollectionViewCell.swift in Sources */,

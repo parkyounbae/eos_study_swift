@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, PHPhotoLibraryChangeObserver {
     
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var selectBtn: UIBarButtonItem!
@@ -76,6 +76,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         //공유 삭제 버튼 활성화 하기
         //selectBtn.isEnabled = true
         shareBtn.isEnabled = true
+        self.removeBtn.isEnabled = true
         navigationItem.title = "항목 선택"
         self.backBtn.isEnabled = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelbtAction(_:)))
@@ -89,6 +90,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         //공유 삭제 버튼 활성화 하기
         self.navigationItem.rightBarButtonItem = myRightBarButton
         //selectBtn.isEnabled = false
+        removeBtn.isEnabled = false
         shareBtn.isEnabled = false
         navigationItem.title = "선택"
         self.backBtn.isEnabled = true
@@ -105,6 +107,12 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func clickRemoveBtn(_ sender: Any) {
+        var asset = [PHAsset]()
+        let assets = PHAsset.fetchAssets(in: pictures, options: nil)
+        for i in imageToDelete{
+            asset.append(assets.object(at: i))
+        }
+        PHPhotoLibrary.shared().performChanges({PHAssetChangeRequest.deleteAssets(asset as NSFastEnumeration)}, completionHandler: nil)
     }
     
 
@@ -117,5 +125,51 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.cellForItem(at: indexPath)?.alpha = 0.7
+        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.black
+        
+        if !imageToDelete.contains(indexPath.item){
+            imageToDelete.append(indexPath.item)
+        }
+        
+        if !stop{
+            guard let vc = storyboard?.instantiateViewController(identifier: "detailView") else{
+                print("viewcontroller not found")
+                return
+            }
+            
+            let thirdvc: ThirdViewController = vc as! ThirdViewController
+            
+            let cell: PhotoCollectionViewCell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+            thirdvc.picture = cell.imageView.image
+            
+            let assets = PHAsset.fetchAssets(in: pictures, options: nil)
+            thirdvc.asset = assets.object(at: indexPath.item)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        collectionView.cellForItem(at: indexPath)?.alpha = 1
+        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.white
+        
+        let index: Int! = imageToDelete.firstIndex(of: indexPath.item)
+        imageToDelete.remove(at: index)
+        
+    }
+    
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        guard let changes = changeInstance.changeDetails(for: pictures) else{
+            return
+        }
+        
+        pictures = changes.objectAfterChanges
+        
+        OperationQueue.main.addOperation {
+            self.photoCollectionView.reloadData()
+        }
+    }
+    
 }

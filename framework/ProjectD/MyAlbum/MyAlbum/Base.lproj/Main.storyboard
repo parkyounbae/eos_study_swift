@@ -138,7 +138,6 @@
                                         <size key="customSize" width="127" height="127"/>
                                         <connections>
                                             <outlet property="imageView" destination="ry7-vr-lcZ" id="3VV-gD-sYl"/>
-                                            <segue destination="bLI-uh-DeE" kind="show" id="p4J-cD-9qn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -200,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="118.52678571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="7v7-VK-X0O">
             <objects>
-                <viewController id="bLI-uh-DeE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailView" id="bLI-uh-DeE" customClass="ThirdViewController" customModule="MyAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XLp-2j-gob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,16 +223,23 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="27J-ZQ-HYu"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="BRk-bT-o5H"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bLI-uh-DeE" id="QoH-Tg-XgQ"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QyN-Yg-hF3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="JUQ-lb-azL"/>
+                    <connections>
+                        <outlet property="imageView" destination="PqB-Ep-IIN" id="bvw-mZ-9X5"/>
+                        <outlet property="scrollView" destination="cBA-t3-Abr" id="7cc-4q-9LL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="531-di-Van" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2385.507246376812" y="129.91071428571428"/>
+            <point key="canvasLocation" x="2567" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="adc-Ck-0p0">
