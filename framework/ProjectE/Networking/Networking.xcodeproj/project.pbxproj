@@ -16,6 +16,7 @@
 		F4D6BBAD2649063C007D4784 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6BBAC2649063C007D4784 /* NetworkingTests.swift */; };
 		F4D6BBB82649063C007D4784 /* NetworkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6BBB72649063C007D4784 /* NetworkingUITests.swift */; };
 		F4D6BBC626490756007D4784 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6BBC526490756007D4784 /* Model.swift */; };
+		F4F65928264A55920088932B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F65927264A55920088932B /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F4D6BBB72649063C007D4784 /* NetworkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUITests.swift; sourceTree = "<group>"; };
 		F4D6BBB92649063C007D4784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4D6BBC526490756007D4784 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F4F65927264A55920088932B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		F4D6BB9426490639007D4784 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F4F65927264A55920088932B /* Request.swift */,
 				F4D6BB9526490639007D4784 /* AppDelegate.swift */,
 				F4D6BB9726490639007D4784 /* SceneDelegate.swift */,
 				F4D6BB9926490639007D4784 /* ViewController.swift */,
@@ -263,6 +266,7 @@
 			files = (
 				F4D6BB9A26490639007D4784 /* ViewController.swift in Sources */,
 				F4D6BB9626490639007D4784 /* AppDelegate.swift in Sources */,
+				F4F65928264A55920088932B /* Request.swift in Sources */,
 				F4D6BB9826490639007D4784 /* SceneDelegate.swift in Sources */,
 				F4D6BBC626490756007D4784 /* Model.swift in Sources */,
 			);
