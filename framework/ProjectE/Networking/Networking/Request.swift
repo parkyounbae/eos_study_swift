@@ -7,7 +7,8 @@
 
 import Foundation
 
-let DidReceiveFriendsNotification: Notification.Name = Notification.Name("DidReceiveFriends")
+
+
 
 func requestFriends() {
     guard let url: URL = URL(string : "https://randomuser.me/api/?results=20&inc=name,email,picture") else {
