@@ -76,6 +76,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lnb-9A-vNy"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AYa-QY-IVj"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -88,6 +92,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="TableView" id="MLk-xo-IBM"/>
+                    <connections>
+                        <outlet property="tableView" destination="IAV-X2-ZGb" id="gkX-3X-IZJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,6 +196,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ECg-zF-dVc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ocx-EI-tO9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

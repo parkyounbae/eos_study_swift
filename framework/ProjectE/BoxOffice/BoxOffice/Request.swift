@@ -25,7 +25,7 @@ func requestMovies(){
             let apiResponse: APIResponse = try JSONDecoder().decode(APIResponse.self, from: data)
             //let apiResponse: APIResponse = try JSONDecoder().decode(APIResponse.self, from: data)
             
-            NotificationCenter.default.post(name: DidReceiveMoviesNotification, object: nil, userInfo: ["movies":apiResponse.results])
+            NotificationCenter.default.post(name: DidReceiveMoviesNotification, object: nil, userInfo: ["movies":apiResponse.movies])
         } catch(let err) {
             print(err.localizedDescription)
         }

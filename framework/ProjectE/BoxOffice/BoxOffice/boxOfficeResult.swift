@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIResponse: Codable{
-    let results: [Movie]
+    let movies: [Movie]
 }
 
 struct Movie: Codable{
