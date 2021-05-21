@@ -108,7 +108,23 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextView: ThirdViewController = segue.destination as? ThirdViewController else {
+            return
+        }
+        
+        guard let cell: MovieTableViewCell = sender as? MovieTableViewCell else {
+            return
+        }
+        
+        guard let index: IndexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        nextView.id = movies[index.item].id
+    }
     
+
     
 
 }

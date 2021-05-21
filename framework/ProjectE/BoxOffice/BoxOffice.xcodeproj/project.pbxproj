@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F40D4CA3265775B5001EB328 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D4CA2265775B5001EB328 /* ThirdViewController.swift */; };
+		F40D4CA5265778E3001EB328 /* movieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D4CA4265778E3001EB328 /* movieDetail.swift */; };
 		F4F65936264B8AA50088932B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F65935264B8AA50088932B /* AppDelegate.swift */; };
 		F4F65938264B8AA50088932B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F65937264B8AA50088932B /* SceneDelegate.swift */; };
 		F4F6593A264B8AA50088932B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F65939264B8AA50088932B /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		F40D4CA2265775B5001EB328 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		F40D4CA4265778E3001EB328 /* movieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieDetail.swift; sourceTree = "<group>"; };
 		F4F65932264B8AA50088932B /* BoxOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F65935264B8AA50088932B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4F65937264B8AA50088932B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				F4F6596D264BAFDC0088932B /* Request.swift */,
 				F4F6596B264BA77A0088932B /* SecondViewController.swift */,
 				F40D4CA2265775B5001EB328 /* ThirdViewController.swift */,
+				F40D4CA4265778E3001EB328 /* movieDetail.swift */,
 				F4F6593B264B8AA50088932B /* Main.storyboard */,
 				F4F65969264BA0DD0088932B /* boxOfficeResult.swift */,
 				F4F65965264B9E030088932B /* MovieTableViewCell.swift */,
@@ -283,6 +286,7 @@
 				F4F6596A264BA0DD0088932B /* boxOfficeResult.swift in Sources */,
 				F4F65968264B9E1B0088932B /* MovieCollectionViewCell.swift in Sources */,
 				F4F6596C264BA77A0088932B /* SecondViewController.swift in Sources */,
+				F40D4CA5265778E3001EB328 /* movieDetail.swift in Sources */,
 				F4F65966264B9E030088932B /* MovieTableViewCell.swift in Sources */,
 				F4F65938264B8AA50088932B /* SceneDelegate.swift in Sources */,
 			);

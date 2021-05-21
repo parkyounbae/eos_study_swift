@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="2097.1014492753625" y="-72.321428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="IcR-8U-n7E">
             <objects>
-                <viewController id="5U3-dQ-rXg" sceneMemberID="viewController">
+                <viewController id="5U3-dQ-rXg" customClass="ThirdViewController" customModule="BoxOffice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="29B-DT-yb0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
