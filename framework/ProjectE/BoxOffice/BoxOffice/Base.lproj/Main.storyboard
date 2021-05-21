@@ -108,8 +108,20 @@
                     <view key="view" contentMode="scaleToFill" id="29B-DT-yb0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aUT-zP-dHL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tOt-n6-cdH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aUT-zP-dHL" firstAttribute="top" secondItem="tOt-n6-cdH" secondAttribute="top" id="4mE-oF-vBD"/>
+                            <constraint firstItem="tOt-n6-cdH" firstAttribute="bottom" secondItem="aUT-zP-dHL" secondAttribute="bottom" id="TMG-dh-veA"/>
+                            <constraint firstItem="aUT-zP-dHL" firstAttribute="leading" secondItem="tOt-n6-cdH" secondAttribute="leading" id="VUQ-UT-KPW"/>
+                            <constraint firstItem="tOt-n6-cdH" firstAttribute="trailing" secondItem="aUT-zP-dHL" secondAttribute="trailing" id="vkU-0S-rCB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ApL-Nu-yBp"/>
                 </viewController>
@@ -280,7 +292,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="euX-ji-dsB"/>
+        <segue reference="lPs-hT-yGY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
