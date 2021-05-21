@@ -12,4 +12,5 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieOpen: UILabel!
     @IBOutlet weak var movieTicker: UILabel!
+    @IBOutlet weak var movieGrade: UIImageView!
 }

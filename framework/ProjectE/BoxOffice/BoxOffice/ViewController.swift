@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMoviesNotification(_:)), name: DidReceiveMoviesNotification, object: nil)
+        
+        self.navigationItem.title = "양수리 영화관"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,10 +59,30 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         let movie: Movie = movies[indexPath.item]
         
-        cell.movieName.text = movie.title //연령제한 추가해야함
+        //cell.movieName.text = movie.title //연령제한 추가해야함
         cell.movieOpen.text = movie.dateString
         cell.movieTicker.text = movie.fullInfo
         cell.moviePoster.image = nil
+        
+        let attachment = NSTextAttachment()
+        
+        switch movie.grade {
+        case 0:
+            attachment.image = UIImage(named: "ic_allages")
+        case 12:
+            attachment.image = UIImage(named: "ic_12")
+        case 15:
+            attachment.image = UIImage(named: "ic_15")
+        case 19:
+            attachment.image = UIImage(named: "ic_19")
+        default:
+            attachment.image = UIImage(named: "ic_allages")
+        }
+        
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let contentString = NSMutableAttributedString(string: movie.title)
+        contentString.append(attachmentString)
+        cell.movieName.attributedText = contentString
         
         DispatchQueue.global().async {
             guard let imageURL: URL = URL(string: movie.thumb) else { return }
