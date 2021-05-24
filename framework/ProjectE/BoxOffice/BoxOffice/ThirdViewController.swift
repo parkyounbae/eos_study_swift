@@ -7,7 +7,22 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    @IBOutlet weak var movieTableView: UITableView!
+    let movieDetailTableViewCellIdentifier: String = "movieDetailCell"
+    let movieSynopsysTableViewCellIdentifier: String = "movieSynopsysCell"
+    let moviePeopleTableViewCellIdentifier: String = "moviePeopleCell"
+    let movieCommentTableViewCellIdentifier: String = "movieCommentCell"
     
     var id: String = String()
 
